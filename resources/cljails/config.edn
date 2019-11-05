@@ -1,12 +1,20 @@
 {:duct.profile/base
  {:duct.core/project-ns  cljails
+
+  ;; Routing
   :duct.router/ataraxy   {:routes {:get [:cljails.handler/index]}}
-  :cljails.handler/index {}}
+  :cljails.handler/index {}
 
- :duct.profile/dev     #duct/include "dev"
- :duct.profile/local   #duct/include "local"
- :duct.profile/prod    {}
+  ;; Model
+  :cljails.model/schema  {}
+  :cljails.model/db      {:uri    #duct/env ["DATAHIKE_CONNECTION_URI" String]
+                          :schema #ig/ref :cljails.model/schema}}
 
- :duct.module/logging  {}
- :duct.module.web/api  {}
- :duct.module.web/site {}}
+ ;; Env
+ :duct.profile/dev    #duct/include "dev"
+ :duct.profile/local  #duct/include "local"
+ :duct.profile/prod   {}
+
+ ;; Modules
+ :duct.module/logging {}
+ :duct.module.web/api {}}

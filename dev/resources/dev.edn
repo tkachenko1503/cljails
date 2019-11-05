@@ -1,1 +1,1 @@
-{}
+{:cljails.model/db {:uri "datahike:mem://dev"}}

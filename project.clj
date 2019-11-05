@@ -12,7 +12,7 @@
 
   :plugins [[duct/lein-duct "0.12.1"]]
   :middleware [lein-duct.plugin/middleware]
-  :uberjar-name "cljails-standalone.jar"
+  :uberjar-name "cljails.jar"
   :prep-tasks ["javac" "compile" ["run" ":duct/compiler"]]
 
   :main ^:skip-aot cljails.main
@@ -27,7 +27,6 @@
    :uberjar      {:aot :all}
 
    :profiles/dev {}
-
    :project/dev  {:source-paths   ["dev/src"]
                   :resource-paths ["dev/resources"]
                   :dependencies   [[integrant/repl "0.3.1"]
