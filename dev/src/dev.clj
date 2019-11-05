@@ -23,10 +23,6 @@
   (eftest/run-tests (eftest/find-tests "test")))
 
 
-(def profiles
-  [:duct.profile/dev :duct.profile/local])
-
-
 (clojure.tools.namespace.repl/set-refresh-dirs "dev/src" "src" "test")
 
 
@@ -34,7 +30,10 @@
   (load "local"))
 
 
-(integrant.repl/set-prep! #(duct/prep-config (read-config) profiles))
+(integrant.repl/set-prep!
+  #(duct/prep-config
+     (read-config)
+     [:duct.profile/dev :duct.profile/local]))
 
 
 (comment
